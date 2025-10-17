@@ -4,7 +4,8 @@ import { getAllManagers } from '@/lib/db/queries';
 import { getCachedManagers, cacheManagers } from '@/lib/redis/cache';
 import type { Manager } from '@/types';
 
-export const getManagers = (): Promise<Manager[]> => {
+// Server Action требует async, но используем Promise-based подход внутри
+export const getManagers = async (): Promise<Manager[]> => {
   return getCachedManagers()
     .then((cached) =>
       cached

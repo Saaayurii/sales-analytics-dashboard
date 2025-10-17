@@ -60,23 +60,23 @@ export const ImportButton = () => {
 
     return !allFilesSelected
       ? (() => {
-          toast.error("Please select all three CSV files");
+          toast.error("Пожалуйста, выберите все три CSV файла");
           return Promise.resolve();
         })()
       : (() => {
           setLoading(true);
 
           const formData = new FormData();
-          formData.append("sales", files.sales);
-          formData.append("managers", files.managers);
-          formData.append("prices", files.prices);
+          files.sales ? formData.append("sales", files.sales) : null;
+          files.managers ? formData.append("managers", files.managers) : null;
+          files.prices ? formData.append("prices", files.prices) : null;
 
           return importCSVData(formData)
             .then((result) => {
               return result.success
                 ? (() => {
                     toast.success(
-                      `Successfully imported ${result.imported_sales} sales, ${result.imported_managers} managers, and ${result.imported_prices} prices`
+                      `Успешно импортировано: ${result.imported_sales} продаж, ${result.imported_managers} менеджеров, ${result.imported_prices} цен`
                     );
                     clearForm();
                     setOpen(false);
@@ -86,12 +86,12 @@ export const ImportButton = () => {
                     const errorMessage =
                       result.errors && result.errors.length > 0
                         ? result.errors.join(", ")
-                        : "Import failed";
+                        : "Ошибка импорта";
                     toast.error(errorMessage);
                   })();
             })
             .catch((error) => {
-              toast.error(error.message || "An error occurred during import");
+              toast.error(error.message || "Произошла ошибка при импорте");
             })
             .finally(() => {
               setLoading(false);
@@ -106,20 +106,20 @@ export const ImportButton = () => {
       <DialogTrigger asChild>
         <Button>
           <Upload className="h-4 w-4" />
-          Import CSV Data
+          Импорт CSV данных
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[500px]">
         <DialogHeader>
-          <DialogTitle>Import CSV Data</DialogTitle>
+          <DialogTitle>Импорт CSV данных</DialogTitle>
           <DialogDescription>
-            Upload sales, managers, and prices CSV files to import data into the system.
+            Загрузите CSV файлы с продажами, менеджерами и ценами для импорта данных в систему.
           </DialogDescription>
         </DialogHeader>
 
         <div className="grid gap-4 py-4">
           <div className="grid gap-2">
-            <Label htmlFor="sales-file">Sales CSV</Label>
+            <Label htmlFor="sales-file">CSV продаж</Label>
             <Input
               id="sales-file"
               type="file"
@@ -134,7 +134,7 @@ export const ImportButton = () => {
           </div>
 
           <div className="grid gap-2">
-            <Label htmlFor="managers-file">Managers CSV</Label>
+            <Label htmlFor="managers-file">CSV менеджеров</Label>
             <Input
               id="managers-file"
               type="file"
@@ -149,7 +149,7 @@ export const ImportButton = () => {
           </div>
 
           <div className="grid gap-2">
-            <Label htmlFor="prices-file">Prices CSV</Label>
+            <Label htmlFor="prices-file">CSV цен</Label>
             <Input
               id="prices-file"
               type="file"
@@ -170,13 +170,13 @@ export const ImportButton = () => {
             onClick={() => setOpen(false)}
             disabled={loading}
           >
-            Cancel
+            Отмена
           </Button>
           <Button
             onClick={handleSubmit}
             disabled={!allFilesSelected || loading}
           >
-            {loading ? "Importing..." : "Import"}
+            {loading ? "Импортируем..." : "Импорт"}
           </Button>
         </DialogFooter>
       </DialogContent>

@@ -34,25 +34,25 @@ const formatNumber = (value: number): string => {
 export const KPICards = ({ kpi }: KPICardsProps) => {
   const cards: KPICardData[] = [
     {
-      title: "Total Revenue",
+      title: "Общая выручка",
       value: formatCurrency(kpi.total_revenue),
       icon: <DollarSign className="h-5 w-5" />,
       color: "text-blue-600 dark:text-blue-400",
     },
     {
-      title: "Total Quantity",
+      title: "Количество продаж",
       value: formatNumber(kpi.total_quantity),
       icon: <Package className="h-5 w-5" />,
       color: "text-green-600 dark:text-green-400",
     },
     {
-      title: "Average Check",
+      title: "Средний чек",
       value: formatCurrency(kpi.average_check),
       icon: <Receipt className="h-5 w-5" />,
       color: "text-amber-600 dark:text-amber-400",
     },
     {
-      title: "Active Managers",
+      title: "Активных менеджеров",
       value: formatNumber(kpi.active_managers),
       icon: <Users className="h-5 w-5" />,
       color: "text-violet-600 dark:text-violet-400",

@@ -8,7 +8,8 @@ import { invalidateAnalyticsCache } from '@/lib/redis/cache';
 import { transaction } from '@/lib/db/postgres';
 import type { ImportResult } from '@/types';
 
-export const importCSVData = (formData: FormData): Promise<ImportResult> => {
+// Server Action требует async, но используем Promise-based подход внутри
+export const importCSVData = async (formData: FormData): Promise<ImportResult> => {
   const salesFile = formData.get('sales') as File | null;
   const managersFile = formData.get('managers') as File | null;
   const pricesFile = formData.get('prices') as File | null;

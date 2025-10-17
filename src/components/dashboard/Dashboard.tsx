@@ -43,7 +43,7 @@ export const Dashboard = ({ initialData, managers }: DashboardProps) => {
       <div className={`grid grid-cols-1 gap-6 lg:grid-cols-2 ${isPending ? "opacity-50 pointer-events-none" : ""}`}>
         <Card>
           <CardHeader>
-            <CardTitle>Monthly Sales Trend</CardTitle>
+            <CardTitle>Динамика продаж по месяцам</CardTitle>
           </CardHeader>
           <CardContent className="h-[400px]">
             <SalesChart data={data.monthly_sales} />
@@ -52,7 +52,7 @@ export const Dashboard = ({ initialData, managers }: DashboardProps) => {
 
         <Card>
           <CardHeader>
-            <CardTitle>Sales by Category</CardTitle>
+            <CardTitle>Продажи по категориям</CardTitle>
           </CardHeader>
           <CardContent className="h-[400px]">
             <CategoryChart data={data.category_sales} />
@@ -61,7 +61,7 @@ export const Dashboard = ({ initialData, managers }: DashboardProps) => {
 
         <Card>
           <CardHeader>
-            <CardTitle>Top Performing Managers</CardTitle>
+            <CardTitle>Топ менеджеров по продажам</CardTitle>
           </CardHeader>
           <CardContent className="h-[400px]">
             <ManagersChart data={data.top_managers} />
@@ -70,7 +70,7 @@ export const Dashboard = ({ initialData, managers }: DashboardProps) => {
 
         <Card>
           <CardHeader>
-            <CardTitle>Recent Sales Details</CardTitle>
+            <CardTitle>Детализированные продажи</CardTitle>
           </CardHeader>
           <CardContent className="h-[400px] overflow-auto">
             <DetailedTable data={data.detailed_sales} />

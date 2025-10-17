@@ -21,6 +21,9 @@ COPY . .
 # Environment variables for build
 ENV NEXT_TELEMETRY_DISABLED=1
 ENV NODE_ENV=production
+# Dummy values for build time (not used during build, but prevents errors)
+ENV DATABASE_URL="postgresql://dummy:dummy@localhost:5432/dummy"
+ENV REDIS_URL="redis://localhost:6379"
 
 # Build Next.js application
 RUN npm run build

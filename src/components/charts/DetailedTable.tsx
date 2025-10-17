@@ -52,18 +52,18 @@ export const DetailedTable = ({ data }: DetailedTableProps) => {
     <div className="w-full">
       {!hasData ? (
         <div className="flex items-center justify-center h-40 text-muted-foreground">
-          <p>No detailed sales data available for the selected period</p>
+          <p>Нет данных о продажах за выбранный период</p>
         </div>
       ) : (
         <div className="rounded-md border">
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead className="w-[120px]">Date</TableHead>
-                <TableHead className="w-[180px]">Manager</TableHead>
-                <TableHead className="min-w-[200px]">Product</TableHead>
-                <TableHead className="text-right w-[100px]">Quantity</TableHead>
-                <TableHead className="text-right w-[140px]">Total</TableHead>
+                <TableHead className="w-[120px]">Дата</TableHead>
+                <TableHead className="w-[180px]">Менеджер</TableHead>
+                <TableHead className="min-w-[200px]">Товар</TableHead>
+                <TableHead className="text-right w-[100px]">Количество</TableHead>
+                <TableHead className="text-right w-[140px]">Сумма</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -73,7 +73,7 @@ export const DetailedTable = ({ data }: DetailedTableProps) => {
                     {formatDate(row.date)}
                   </TableCell>
                   <TableCell>
-                    {truncateText(row.manager_name || "Unknown", 25)}
+                    {truncateText(row.manager_name || "Неизвестно", 25)}
                   </TableCell>
                   <TableCell>
                     {truncateText(row.product, 40)}
@@ -90,7 +90,7 @@ export const DetailedTable = ({ data }: DetailedTableProps) => {
           </Table>
           {data.length > 100 ? (
             <div className="px-4 py-3 text-sm text-muted-foreground border-t bg-muted/30">
-              Showing first 100 of {formatNumber(data.length)} total rows
+              Показаны первые 100 из {formatNumber(data.length)} записей
             </div>
           ) : null}
         </div>

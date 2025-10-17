@@ -22,8 +22,8 @@ const generateMonthOptions = (): { label: string; value: string }[] => {
   const currentDate = new Date();
 
   const monthNames = [
-    "January", "February", "March", "April", "May", "June",
-    "July", "August", "September", "October", "November", "December"
+    "Январь", "Февраль", "Март", "Апрель", "Май", "Июнь",
+    "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"
   ];
 
   Array.from({ length: 12 }).forEach((_, i) => {
@@ -77,17 +77,17 @@ export const FilterPanel = ({ managers, onFilterChange }: FilterPanelProps) => {
         <div className="flex items-center gap-4 flex-wrap">
           <div className="flex items-center gap-2">
             <Filter className="h-4 w-4 text-muted-foreground" />
-            <span className="text-sm font-medium">Filters:</span>
+            <span className="text-sm font-medium">Фильтры:</span>
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="text-sm text-muted-foreground">Manager:</span>
+            <span className="text-sm text-muted-foreground">Менеджер:</span>
             <Select value={selectedManager} onValueChange={handleManagerChange}>
               <SelectTrigger className="w-[200px]">
-                <SelectValue placeholder="Select manager" />
+                <SelectValue placeholder="Выберите менеджера" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="all">All Managers</SelectItem>
+                <SelectItem value="all">Все менеджеры</SelectItem>
                 {managers.map((manager) => (
                   <SelectItem key={`manager-${manager.id}`} value={String(manager.id)}>
                     {manager.name}
@@ -98,13 +98,13 @@ export const FilterPanel = ({ managers, onFilterChange }: FilterPanelProps) => {
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="text-sm text-muted-foreground">Period:</span>
+            <span className="text-sm text-muted-foreground">Период:</span>
             <Select value={selectedPeriod} onValueChange={handlePeriodChange}>
               <SelectTrigger className="w-[200px]">
-                <SelectValue placeholder="Select period" />
+                <SelectValue placeholder="Выберите период" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="all">All Time</SelectItem>
+                <SelectItem value="all">Всё время</SelectItem>
                 {monthOptions.map((option) => (
                   <SelectItem key={`period-${option.value}`} value={option.value}>
                     {option.label}

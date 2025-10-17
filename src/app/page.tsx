@@ -10,10 +10,10 @@ const HomePage = async () => {
       <div className="container mx-auto px-4 py-16">
         <div className="text-center mb-12">
           <h1 className="text-5xl font-bold tracking-tight mb-4">
-            Sales Analytics Dashboard
+            Дашборд Аналитики Продаж
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Comprehensive sales analytics with real-time data visualization, performance tracking, and actionable insights
+            Комплексная аналитика продаж с визуализацией данных в реальном времени, отслеживанием эффективности и полезными инсайтами
           </p>
         </div>
 
@@ -21,11 +21,11 @@ const HomePage = async () => {
           <Card>
             <CardHeader>
               <BarChart3 className="h-10 w-10 mb-2 text-primary" />
-              <CardTitle>Real-time Analytics</CardTitle>
+              <CardTitle>Аналитика в реальном времени</CardTitle>
             </CardHeader>
             <CardContent>
               <CardDescription>
-                Track sales performance with live data updates and interactive charts
+                Отслеживайте показатели продаж с обновлением данных в реальном времени и интерактивными графиками
               </CardDescription>
             </CardContent>
           </Card>
@@ -33,11 +33,11 @@ const HomePage = async () => {
           <Card>
             <CardHeader>
               <TrendingUp className="h-10 w-10 mb-2 text-primary" />
-              <CardTitle>Performance Metrics</CardTitle>
+              <CardTitle>Метрики эффективности</CardTitle>
             </CardHeader>
             <CardContent>
               <CardDescription>
-                Monitor KPIs, revenue trends, and category performance at a glance
+                Мониторьте KPI, тренды выручки и эффективность по категориям
               </CardDescription>
             </CardContent>
           </Card>
@@ -45,11 +45,11 @@ const HomePage = async () => {
           <Card>
             <CardHeader>
               <Users className="h-10 w-10 mb-2 text-primary" />
-              <CardTitle>Manager Insights</CardTitle>
+              <CardTitle>Аналитика менеджеров</CardTitle>
             </CardHeader>
             <CardContent>
               <CardDescription>
-                Analyze manager performance and identify top performers
+                Анализируйте эффективность менеджеров и выявляйте лучших исполнителей
               </CardDescription>
             </CardContent>
           </Card>
@@ -58,7 +58,7 @@ const HomePage = async () => {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <Link href="/dashboard">
             <Button size="lg" className="gap-2">
-              View Dashboard
+              Открыть дашборд
               <ArrowRight className="h-4 w-4" />
             </Button>
           </Link>
@@ -68,17 +68,17 @@ const HomePage = async () => {
         <div className="mt-16 text-center">
           <Card className="max-w-2xl mx-auto">
             <CardHeader>
-              <CardTitle>Getting Started</CardTitle>
+              <CardTitle>Начало работы</CardTitle>
             </CardHeader>
             <CardContent className="text-left space-y-3">
               <p className="text-muted-foreground">
-                <span className="font-semibold">1. Import Data:</span> Upload your CSV files (sales, managers, prices) to populate the dashboard
+                <span className="font-semibold">1. Импорт данных:</span> Загрузите CSV файлы (продажи, менеджеры, цены) для заполнения дашборда
               </p>
               <p className="text-muted-foreground">
-                <span className="font-semibold">2. View Analytics:</span> Navigate to the dashboard to see comprehensive sales insights
+                <span className="font-semibold">2. Просмотр аналитики:</span> Перейдите в дашборд для просмотра детальной аналитики продаж
               </p>
               <p className="text-muted-foreground">
-                <span className="font-semibold">3. Apply Filters:</span> Customize your view by filtering data by manager, time period, or category
+                <span className="font-semibold">3. Применение фильтров:</span> Настройте отображение, фильтруя данные по менеджерам, периоду или категории
               </p>
             </CardContent>
           </Card>

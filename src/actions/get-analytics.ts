@@ -10,7 +10,8 @@ import {
 import { getCachedAnalytics, cacheAnalytics } from '@/lib/redis/cache';
 import type { DashboardFilters, AnalyticsData } from '@/types';
 
-export const getAnalyticsData = (filters: DashboardFilters): Promise<AnalyticsData> => {
+// Server Action требует async, но используем Promise-based подход внутри
+export const getAnalyticsData = async (filters: DashboardFilters): Promise<AnalyticsData> => {
   return getCachedAnalytics(filters)
     .then((cached) =>
       cached
@@ -35,7 +36,7 @@ export const getAnalyticsData = (filters: DashboardFilters): Promise<AnalyticsDa
                 top_managers: managersData,
                 detailed_sales: detailedData,
               };
-              
+
               return cacheAnalytics(filters, analytics).then(() => analytics);
             })
     )

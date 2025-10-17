@@ -13,7 +13,7 @@ export const parseCSV = <T>(file: File): Promise<T[]> => {
           ? reject(new Error(`CSV Parse Error: ${results.errors[0].message}`))
           : resolve(results.data as T[]);
       },
-      error: (error) => {
+      error: (error: Error) => {
         reject(error);
       },
     });
@@ -31,7 +31,7 @@ export const parseCSVString = <T>(csvString: string): Promise<T[]> => {
           ? reject(new Error(`CSV Parse Error: ${results.errors[0].message}`))
           : resolve(results.data as T[]);
       },
-      error: (error) => {
+      error: (error: Error) => {
         reject(error);
       },
     });

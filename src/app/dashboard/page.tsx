@@ -6,6 +6,10 @@ import type { AnalyticsData, Manager } from "@/types";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 
+// Force dynamic rendering (no static generation)
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 const DashboardLoadingSkeleton = () => {
   return (
     <div className="space-y-6">

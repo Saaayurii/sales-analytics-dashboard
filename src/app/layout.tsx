@@ -14,11 +14,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Sales Analytics Dashboard",
-  description: "Comprehensive sales analytics dashboard with real-time data visualization and insights",
+  title: "Дашборд Аналитики Продаж",
+  description: "Комплексный дашборд аналитики продаж с визуализацией данных в реальном времени и аналитическими инсайтами",
 };
-
-export const experimental_ppr = true;
 
 type RootLayoutProps = Readonly<{
   children: React.ReactNode;
